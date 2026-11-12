@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Petualangan Hani di Negeri Huruf H</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap">
+<style>
+:root{--s1:#bfe8ff;--s2:#fff6c9;--ink:#33295c;--card:#fff;--pk:#ff8fb8;--yl:#ffd54a;--gn:#5fd08a;--pu:#a98bff;--bl:#5bb8ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--s1:#2b3f77;--s2:#4b3a6b;--ink:#fff;--card:#3a3568}}
+:root[data-theme="dark"]{--s1:#2b3f77;--s2:#4b3a6b;--ink:#fff;--card:#3a3568}
+html{height:100%;background:var(--s1);scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;height:100%;display:flex;flex-direction:column;font-family:'Baloo 2','Fredoka','Nunito','Comic Sans MS',system-ui,sans-serif;font-weight:600;color:var(--ink);background:linear-gradient(var(--s1),var(--s2));overflow:hidden;font-size:clamp(18px,2.6vw,24px)}
+.bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.rb{position:absolute;left:50%;bottom:-48vmin;width:100vmin;height:100vmin;transform:translateX(-50%);border-radius:50%;opacity:.5;background:radial-gradient(circle,transparent 52%,#ff8fb8 52% 57%,#ffd54a 57% 62%,#7ee0a0 62% 67%,#5bb8ff 67% 72%,#a98bff 72% 77%,transparent 77%)}
+.cl{position:absolute;font-size:60px;opacity:.85;animation:mv 40s linear infinite}
+.fl{position:absolute;font-weight:800;font-size:40px;opacity:.28;animation:fy 6s ease-in-out infinite}
+.fw{position:absolute;bottom:0;left:0;right:0;font-size:30px;text-align:center;letter-spacing:8px;white-space:nowrap;overflow:hidden}
+@keyframes mv{from{left:-120px}to{left:110%}}@keyframes fy{50%{transform:translateY(-22px) rotate(8deg)}}
+header,#nav{position:relative;z-index:2;display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--card);box-shadow:0 3px 10px #0002}
+header b{font-size:clamp(16px,2.4vw,22px);white-space:nowrap}
+#pg{flex:1;height:18px;background:#0002;border-radius:9px;overflow:hidden;min-width:60px}#pf{height:100%;width:0;background:linear-gradient(90deg,var(--gn),var(--yl));transition:width .6s}
+.ib{width:48px;height:48px;border-radius:50%;border:0;font-size:24px;background:var(--yl);cursor:pointer}
+main{position:relative;z-index:1;flex:1;overflow:auto;padding:12px}
+.page{display:none;max-width:980px;margin:0 auto;text-align:center}.page.on{display:block;animation:pop .4s}
+@keyframes pop{from{opacity:0;transform:translateY(20px)}}
+h1{font-size:clamp(30px,7vw,64px);line-height:1;margin:6px 0;color:#ff5c93;text-shadow:3px 3px 0 #fff}
+h2{font-size:clamp(24px,4.5vw,40px);margin:6px 0}h3{margin:10px 0 4px}
+.btn,.opt,.tab{font:inherit;font-weight:800;font-size:clamp(20px,3.6vw,30px);min-height:58px;padding:10px 26px;border:0;border-radius:999px;color:#33295c;background:linear-gradient(var(--yl),#ffb84a);box-shadow:0 6px 0 #0003;cursor:pointer;margin:6px}
+.btn:active,.opt:active{transform:translateY(5px);box-shadow:0 1px 0 #0003}.btn.g{background:linear-gradient(#8ff0b0,var(--gn))}.btn.p{background:linear-gradient(#ffc0da,var(--pk))}.btn.b{background:linear-gradient(#a8dcff,var(--bl))}.btn.on,.tab.on{outline:5px solid var(--pu)}
+.btn:disabled{opacity:.4}
+.opt{background:var(--card);color:var(--ink);min-width:90px;font-size:clamp(28px,5vw,44px)}.opt.long{font-size:clamp(18px,3vw,26px);border-radius:24px}
+.card{background:var(--card);border-radius:28px;padding:14px;box-shadow:0 6px 0 #0002;margin:10px auto}
+.hb{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.hani svg{width:clamp(90px,17vw,150px);overflow:visible}.hani.jump{animation:jp .6s}
+.wave{transform-origin:88px 100px;animation:wv 1s ease-in-out infinite}
+@keyframes wv{50%{transform:rotate(-25deg)}}@keyframes jp{40%{transform:translateY(-26px) scale(1.08)}}
+.bubble{position:relative;background:var(--card);padding:12px 18px;border-radius:24px;max-width:560px;box-shadow:0 4px 0 #0002}
+.bubble:before{content:"";position:absolute;left:-14px;top:50%;border:10px solid transparent;border-right-color:var(--card);border-left:0;margin-top:-10px}
+.big{display:flex;justify-content:center;gap:16px}
+.L{font:inherit;font-weight:800;font-size:clamp(110px,24vw,200px);line-height:1;width:min(42vw,300px);border:0;border-radius:40px;background:var(--card);color:var(--c);box-shadow:0 8px 0 #0003;cursor:pointer}.L:active{transform:scale(.95)}
+.pics{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.pic{font:inherit;border:0;background:var(--card);color:var(--ink);border-radius:24px;padding:8px 18px;box-shadow:0 5px 0 #0002;cursor:pointer}.pic span{display:block;font-size:clamp(48px,9vw,80px)}.pic b{font-size:clamp(20px,3.5vw,30px)}
+.emo{font-size:clamp(64px,13vw,120px);line-height:1.1;display:inline-block}.big2{animation:bz 1s infinite;font-size:clamp(90px,18vw,150px)}@keyframes bz{50%{transform:scale(1.12) rotate(5deg)}}
+.wd{font-size:clamp(34px,7vw,64px);font-weight:800}.wd u{color:#ff5c93;text-decoration:none}
+.opts{display:flex;flex-wrap:wrap;justify-content:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.mb{font:inherit;border:0;border-radius:28px;padding:14px;font-size:clamp(20px,3.4vw,28px);font-weight:800;color:#33295c;box-shadow:0 7px 0 #0003;cursor:pointer;position:relative;background:var(--c)}.mb i{display:block;font-style:normal;font-size:60px}.mb:active{transform:translateY(5px)}
+.mb em{position:absolute;top:6px;right:10px;font-style:normal;font-size:34px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:12px;max-width:640px;margin:auto}
+.tile{font:inherit;font-weight:800;font-size:clamp(40px,8vw,64px);height:clamp(80px,15vw,110px);border:0;border-radius:24px;color:#33295c;box-shadow:0 6px 0 #0003;cursor:pointer;background:var(--c);transition:.3s}
+.tile.f{background:#fff7a8;box-shadow:0 0 28px 8px #ffd54a;transform:scale(1.1) rotate(-4deg)}
+.shake{animation:sk .4s}@keyframes sk{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.cv{position:relative;width:min(100%,440px);aspect-ratio:1;margin:8px auto;background:var(--card);border-radius:28px;box-shadow:0 6px 0 #0002;overflow:hidden}
+.cv.w{width:min(100%,620px);aspect-ratio:600/180}
+.cv canvas{position:absolute;inset:0;width:100%;height:100%}canvas.ink{touch-action:none;cursor:crosshair}
+.hid{display:none}
+.dots span{display:inline-block;width:20px;height:20px;border-radius:50%;background:#0003;margin:3px}.dots .d{background:var(--gn)}.dots .c{background:var(--yl)}
+.stp{font-size:clamp(17px,2.6vw,22px)}
+#nav{justify-content:space-between;box-shadow:0 -3px 10px #0002}
+#toast{position:fixed;top:calc(70px + env(safe-area-inset-top,0px));left:50%;transform:translate(-50%,-30px);background:var(--card);padding:10px 24px;border-radius:999px;box-shadow:0 5px 18px #0004;z-index:9;opacity:0;transition:.3s;font-weight:800;pointer-events:none;text-align:center}#toast.on{opacity:1;transform:translate(-50%,0)}
+#wipe{position:fixed;inset:0;z-index:20;pointer-events:none;opacity:0;display:grid;place-items:center;font-size:40vmin;background:radial-gradient(circle,#ffe27a,#ff8fb8,#a98bff)}#wipe.on{animation:wp .7s}
+@keyframes wp{0%{opacity:0;transform:scale(.2)}45%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.4)}}
+.sp,.rd,.cf{position:fixed;pointer-events:none;z-index:15}.sp{font-size:30px;animation:fl2 .9s forwards}@keyframes fl2{to{transform:translate(var(--dx),var(--dy)) scale(.3);opacity:0}}
+.rd{top:-30px;animation:rn 1.4s linear forwards}@keyframes rn{to{transform:translateY(110vh)}}
+.cf{top:-20px;width:12px;height:18px;animation:cfa 3.5s linear forwards}@keyframes cfa{to{transform:translateY(110vh) rotate(720deg)}}
+.med{font-size:clamp(110px,22vw,190px);animation:bz 1.4s infinite}
+.ref .btn{font-size:clamp(18px,3vw,26px)}.ref .btn.on{background:linear-gradient(#8ff0b0,var(--gn))}
+</style></head><body>
+<div class="bg"><div class="rb"></div><span class="cl" style="top:8%;animation-delay:-5s">☁️</span><span class="cl" style="top:22%;animation-duration:55s;animation-delay:-30s">☁️</span><span class="fl" style="left:6%;top:30%">A</span><span class="fl" style="left:88%;top:18%;animation-delay:-2s">h</span><span class="fl" style="left:80%;top:60%;animation-delay:-4s">H</span><span class="fl" style="left:10%;top:68%;animation-delay:-1s">b</span><div class="fw">🌸🌼🌷🌻🌸🌼🌷🌻🌸🌼🌷🌻🌸🌼🌷🌻🌸🌼🌷🌻</div></div>
+<header><b>🌈 Hani &amp; Huruf H</b><div id="pg"><div id="pf"></div></div><b id="pt">0/5</b><b>⭐<span id="sc">0</span></b><button class="ib" id="rd" title="Baca instruksi">🔊</button><button class="ib" id="sn" title="Suara">🔔</button></header>
+<main>
+<section class="page on" id="p1"><h1>PETUALANGAN HANI DI NEGERI HURUF H</h1><h3>Ayo Mengenal, Menebalkan, dan Menulis Huruf H dan h!</h3>
+<div class="hb"><div class="hani"></div><div class="bubble">Halo, Teman Hebat! Siap berpetualang bersama Hani?</div></div>
+<button class="btn p" id="go">🚀 MULAI PETUALANGAN</button></section>
+
+<section class="page" id="p2"><div class="hb"><div class="hani"></div><div class="bubble">Hari ini kita akan mencari huruf H dan h. Ayo bantu Hani menyelesaikan semua misi!</div></div>
+<div class="grid card" id="menu"></div></section>
+
+<section class="page" id="p3"><h2>Misi 1: Kenalan dengan Huruf H dan h</h2><div class="hb"><div class="hani"></div><div class="bubble">Ketuk huruf dan gambar!</div></div>
+<div class="big"><button class="L" id="bH" style="--c:#ff5c93">H</button><button class="L" id="bh" style="--c:#2f9bff">h</button></div>
+<div class="card">Huruf H dan h memiliki bunyi /h/. Bentuknya berbeda, tetapi bunyinya sama.</div>
+<div class="pics" id="pics"></div><div class="card" id="show">👆 Ketuk gambar untuk mendengar namanya</div>
+<h3>Pilih huruf awal gambar ini!</h3><div class="card"><span class="emo" id="mq"></span><div class="opts" id="mo"></div></div></section>
+
+<section class="page" id="p4"><h2>Misi 2: Temukan Si H</h2><div class="hb"><div class="hani"></div><div class="bubble">Bantu Hani menemukan semua huruf H dan h yang bersembunyi!</div></div>
+<h2>Ditemukan: <span id="fc">0</span> dari 4</h2><div class="tiles" id="tiles"></div><button class="btn b hid" id="again2">🔄 Main Lagi</button></section>
+
+<section class="page" id="p5"><h2>Misi 3: Ayo Menulis Huruf H dan h</h2><div class="hb"><div class="hani"></div><div class="bubble">Pilih huruf, lalu ikuti titik hijau dan panahnya!</div></div>
+<div><button class="tab btn p on" id="tH">Huruf H</button><button class="tab btn b" id="th">Huruf h</button></div>
+<div class="stp card" id="stp"></div>
+<div class="cv"><canvas id="gc" width="400" height="400"></canvas><canvas id="ic" class="ink" width="400" height="400"></canvas></div>
+<div><button class="btn" id="mD">👀 Lihat Caranya</button><button class="btn g" id="mT">✏️ Tebalkan</button><button class="btn p" id="mF">🌟 Tulis Sendiri</button></div>
+<div><button class="btn b" id="cl">🗑️ Hapus</button><button class="btn" id="rp">🔁 Ulangi</button></div>
+<h3>Bintang menulis: <span id="wc">0/4</span></h3></section>
+
+<section class="page" id="p6"><h2>Misi 4: Susun Kata Ajaib</h2><div class="hb"><div class="hani"></div><div class="bubble">Pilih suku kata yang tepat!</div></div>
+<h3 id="wd4"></h3><div class="card" id="wq"></div><div class="opts" id="wo"></div>
+<div id="wpad" class="hid"><h3>Sekarang tulis katanya!</h3><div class="cv w"><canvas id="wgc" width="600" height="180"></canvas><canvas id="wic" class="ink" width="600" height="180"></canvas></div><button class="btn b" id="wclr">🗑️ Hapus</button><button class="btn g" id="wfin">✅ Selesai Menulis</button></div></section>
+
+<section class="page" id="p7"><h2>Misi 5: Tantangan Si Pintar</h2><div class="hb"><div class="hani"></div><div class="bubble">Ayo jawab soalnya!</div></div>
+<div class="dots" id="qd"></div><div class="card" id="qb"></div></section>
+
+<section class="page" id="p8"><h1>SELAMAT! KAMU HEBAT!</h1><div class="hb"><div class="hani"></div><div class="bubble" id="b8">Sekarang kamu sudah mengenal dan belajar menulis huruf H dan h!</div></div>
+<div class="med" id="med">🏅</div><div id="fin" class="card"></div>
+<h3>Bagaimana perasaanmu?</h3><div class="ref"><button class="btn">😊 Aku senang dan bisa menulis H dan h.</button><button class="btn">🙂 Aku sudah bisa, tetapi perlu latihan lagi.</button><button class="btn">😌 Aku ingin belajar lagi.</button></div>
+<button class="btn p" id="rs">🔄 ULANGI PETUALANGAN</button><button class="btn g" id="bm">🏠 KEMBALI KE MENU</button></section>
+</main>
+<div id="nav" style="display:none"><button class="btn b" id="bk">⬅️ Kembali</button><button class="btn" id="hm">🏠 Menu</button><button class="btn g" id="nx">Lanjut ➡️</button></div>
+<div id="toast"></div><div id="wipe">⭐</div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+let snd=true,stars=0,page=1,done=[0,0,0,0,0];
+const AC=window.AudioContext||window.webkitAudioContext;let ac;
+function tone(f,t,d,ty='sine'){if(!snd||!AC)return;try{ac=ac||new AC();const o=ac.createOscillator(),g=ac.createGain(),n=ac.currentTime+t;o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(.15,n);g.gain.exponentialRampToValueAtTime(.001,n+d);o.connect(g);g.connect(ac.destination);o.start(n);o.stop(n+d)}catch(e){}}
+const ok=()=>{tone(660,0,.15);tone(880,.12,.15);tone(1100,.24,.25)},no=()=>{tone(300,0,.2,'triangle');tone(240,.15,.25,'triangle')},win=()=>[523,659,784,1047,784,1047].forEach((f,i)=>tone(f,i*.13,.22));
+function say(t){if(!snd||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='id-ID';u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove('on'),1700)}
+function burst(el){const r=el.getBoundingClientRect();for(let i=0;i<7;i++){const s=document.createElement('span');s.className='sp';s.textContent='⭐';s.style.left=r.left+r.width/2+'px';s.style.top=r.top+r.height/2+'px';s.style.setProperty('--dx',(Math.random()-.5)*220+'px');s.style.setProperty('--dy',(Math.random()-.8)*200+'px');document.body.append(s);setTimeout(()=>s.remove(),950)}}
+function star(n,el){stars+=n;$('#sc').textContent=stars;el&&burst(el)}
+function rain(){for(let i=0;i<30;i++){const s=document.createElement('span');s.className='rd';s.textContent='💧';s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*.8+'s';document.body.append(s);setTimeout(()=>s.remove(),2400)}}
+function talk(t){const b=$('#p'+page+' .bubble');if(b&&t)b.textContent=t;$$('#p'+page+' .hani').forEach(h=>{h.classList.remove('jump');void h.offsetWidth;h.classList.add('jump')})}
+function complete(k){if(!done[k]){done[k]=1;toast('🎉 Misi '+(k+1)+' selesai!');win();menu();prog()}}
+function prog(){const n=done.reduce((a,b)=>a+b);$('#pf').style.width=n*20+'%';$('#pt').textContent=n+'/5'}
+const HANI=`<svg viewBox="0 0 120 150"><circle cx="20" cy="66" r="14" fill="#3b2a20"/><circle cx="100" cy="66" r="14" fill="#3b2a20"/><path d="M36 96h48l16 46H20z" fill="#ff8fb8"/><line x1="34" y1="102" x2="20" y2="124" stroke="#ffd9b8" stroke-width="9" stroke-linecap="round"/><line class="wave" x1="88" y1="100" x2="112" y2="70" stroke="#ffd9b8" stroke-width="9" stroke-linecap="round"/><circle cx="60" cy="58" r="38" fill="#ffd9b8"/><path d="M22 58A38 38 0 0 1 98 58Q80 38 60 44Q40 38 22 58Z" fill="#3b2a20"/><path d="M52 24l-14-8v16zM68 24l14-8v16z" fill="#ff5c93"/><circle cx="60" cy="24" r="5" fill="#ff5c93"/><circle cx="46" cy="64" r="6" fill="#33295c"/><circle cx="74" cy="64" r="6" fill="#33295c"/><circle cx="48" cy="62" r="2" fill="#fff"/><circle cx="76" cy="62" r="2" fill="#fff"/><ellipse cx="36" cy="76" rx="6" ry="4" fill="#ff8fb8" opacity=".6"/><ellipse cx="84" cy="76" rx="6" ry="4" fill="#ff8fb8" opacity=".6"/><path d="M48 78Q60 92 72 78" stroke="#c2415d" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>`;
+$$('.hani').forEach(h=>h.innerHTML=HANI);
+const T={2:'Hari ini kita akan mencari huruf H dan h. Ayo bantu Hani menyelesaikan semua misi!',3:'Ketuk huruf H, huruf h, dan gambar-gambarnya!',4:'Bantu Hani menemukan semua huruf H dan h yang bersembunyi!',5:'Pilih huruf. Lihat caranya, tebalkan garis putus-putus, lalu tulis sendiri!',6:'Pilih suku kata yang tepat untuk melengkapi kata!',7:'Ayo jawab lima soal dari Hani!',8:'Sekarang kamu sudah mengenal dan belajar menulis huruf H dan h!'};
+function show(n){page=n;$$('.page').forEach(p=>p.classList.toggle('on',p.id=='p'+n));$('#nav').style.display=n==1?'none':'flex';$('#nx').style.visibility=n==8?'hidden':'visible';$('main').scrollTop=0;if(window.speechSynthesis)speechSynthesis.cancel();if(T[n])talk(T[n]);if(n==2)menu();if(n==8)final()}
+function go(n){const w=$('#wipe');w.classList.remove('on');void w.offsetWidth;w.classList.add('on');setTimeout(()=>show(n),320)}
+$('#go').onclick=()=>{ok();go(2)};$('#bk').onclick=()=>go(page==3?2:page-1);$('#nx').onclick=()=>go(page==2?3:page+1);$('#hm').onclick=()=>go(2);$('#bm').onclick=()=>go(2);
+$('#sn').onclick=()=>{snd=!snd;$('#sn').textContent=snd?'🔔':'🔕';if(!snd&&window.speechSynthesis)speechSynthesis.cancel()};
+$('#rd').onclick=()=>{const b=$('#p'+page+' .bubble');if(!snd){snd=true;$('#sn').textContent='🔔'}say((b?b.textContent:'')+(page==5?' '+$('#stp').textContent.replace(/[0-9]️⃣/g,''):''))};
+function menu(){const M=[['📖','Misi 1: Kenalan dengan Huruf H dan h','#ffc0da'],['🔎','Misi 2: Temukan Si H','#a8dcff'],['✏️','Misi 3: Ayo Menulis Huruf H dan h','#c9f5c9'],['🧩','Misi 4: Susun Kata Ajaib','#fff08a'],['🏆','Misi 5: Tantangan Si Pintar','#d9c9ff']];
+$('#menu').innerHTML=M.map((m,i)=>`<button class="mb" style="--c:${m[2]}" data-i="${i}"><i>${m[0]}</i>${m[1]}${done[i]?'<em>⭐</em>':''}</button>`).join('')+'<button class="mb" style="--c:#ffd9a8" data-i="7"><i>🏅</i>Medali Penghargaan</button>';
+$$('#menu .mb').forEach(b=>b.onclick=()=>{ok();go(+b.dataset.i+3)})}
+/* Misi 1 */
+const W=[['🌧️','hujan'],['👃','hidung'],['💗','hati'],['🌳','hutan']];let mi=0;
+$('#bH').onclick=e=>{say('Ha. Ini huruf kapital H. Bunyinya h.');burst(e.currentTarget);talk('Ini huruf kapital H. Bunyinya /h/.')};
+$('#bh').onclick=e=>{say('Ha. Ini huruf kecil h. Bunyinya h.');burst(e.currentTarget);talk('Ini huruf kecil h. Bunyinya juga /h/.')};
+function m1(){mi=0;$('#pics').innerHTML=W.map((w,i)=>`<button class="pic" data-i="${i}"><span>${w[0]}</span><b>${w[1]}</b></button>`).join('');
+$$('#pics .pic').forEach(b=>b.onclick=()=>{const w=W[b.dataset.i];$('#show').innerHTML=`<span class="emo">${w[0]}</span> <span class="wd"><u>${w[1][0]}</u>${w[1].slice(1)}</span><br>Bunyi awal: /h/`;say(w[1]+'. Bunyi awalnya h');burst(b);if(w[1]=='hujan')rain();talk('Ini '+w[1]+'! Awalnya huruf h.')});ask()}
+function ask(){if(mi>=4){$('#mq').textContent='🎉';$('#mo').innerHTML='<b class="wd">Hebat! Semua benar!</b>';complete(0);return}
+const cap=mi%2,c=cap?'H':'h';$('#mq').textContent=W[mi][0];$('#mo').innerHTML='';sh(cap?['H','N','M']:['h','n','b']).forEach(x=>{const b=document.createElement('button');b.className='opt';b.textContent=x;b.onclick=()=>{if(x==c){ok();star(1,b);talk('Benar! '+W[mi][1]+' diawali huruf '+c);mi++;setTimeout(ask,900)}else{no();b.classList.add('shake');toast('Ups, coba lagi, ya!')}};$('#mo').append(b)})}
+/* Misi 2 */
+let fc=0;function m2(){fc=0;$('#fc').textContent=0;$('#again2').classList.add('hid');const C=['#ffc0da','#a8dcff','#c9f5c9','#fff08a','#d9c9ff'];
+$('#tiles').innerHTML='';sh(['H','N','h','n','M','b','A','m','k','H','h']).forEach((l,i)=>{const b=document.createElement('button');b.className='tile';b.textContent=l;b.style.setProperty('--c',C[i%5]);b.onclick=()=>{if(b.classList.contains('f'))return;if(l=='H'||l=='h'){b.classList.add('f');ok();star(1,b);fc++;$('#fc').textContent=fc;say('Ha');talk('Hebat! Kamu menemukan huruf '+l+'!');if(fc==4){win();talk('Hore! Semua huruf H dan h sudah ditemukan! 🎉');$('#again2').classList.remove('hid');complete(1)}}else{no();b.classList.add('shake');setTimeout(()=>b.classList.remove('shake'),400);talk('Ups, coba cari lagi, ya!');toast('Ups, coba cari lagi, ya!')}};$('#tiles').append(b)})}
+$('#again2').onclick=m2;
+/* Pena */
+function pen(cv,col,lw,end){const x=cv.getContext('2d'),o={pts:[],x,clear(){x.clearRect(0,0,cv.width,cv.height);o.pts=[]}};let d=false,l;x.lineCap=x.lineJoin='round';
+const P=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]};
+cv.addEventListener('pointerdown',e=>{e.preventDefault();try{cv.setPointerCapture(e.pointerId)}catch(_){}d=true;l=P(e);x.fillStyle=col();x.beginPath();x.arc(l[0],l[1],lw/2,0,7);x.fill();o.pts.push(l)});
+cv.addEventListener('pointermove',e=>{if(!d)return;e.preventDefault();const p=P(e);x.strokeStyle=col();x.lineWidth=lw;x.beginPath();x.moveTo(l[0],l[1]);x.lineTo(p[0],p[1]);x.stroke();const n=Math.max(1,Math.ceil(Math.hypot(p[0]-l[0],p[1]-l[1])/5));for(let i=1;i<=n;i++)o.pts.push([l[0]+(p[0]-l[0])*i/n,l[1]+(p[1]-l[1])*i/n]);l=p});
+const up=()=>{if(d){d=false;end&&end(o)}};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);return o}
+/* Misi 3 */
+const SH={H:['M110 70V330','M290 70V330','M110 200H290'],h:['M140 50V330','M140 190C140 140 180 125 210 125C250 125 270 150 270 190V330']};
+const ST={H:'1️⃣ Garis tegak kiri dari atas ke bawah. 2️⃣ Garis tegak kanan dari atas ke bawah. 3️⃣ Garis mendatar di tengah.',h:'1️⃣ Garis tegak panjang dari atas ke bawah. 2️⃣ Dari tengah garis tegak, buat lengkungan ke kanan, lalu turun.'};
+let lt='H',mode='trace',okL={},dm=0;const g=$('#gc').getContext('2d');
+function pp(d){const p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);return{p,L:p.getTotalLength()}}
+function guide(){g.setLineDash([]);g.clearRect(0,0,400,400);g.lineCap=g.lineJoin='round';g.strokeStyle='#c9d3f0';g.lineWidth=2;g.setLineDash([6,8]);[50,200,330].forEach(y=>{g.beginPath();g.moveTo(20,y);g.lineTo(380,y);g.stroke()});
+if(mode=='free'){g.setLineDash([]);return}
+SH[lt].forEach(d=>{const P=new Path2D(d);g.setLineDash([]);g.lineWidth=36;g.strokeStyle='#e6ecff';g.stroke(P);g.setLineDash([12,12]);g.lineWidth=4;g.strokeStyle='#7c6be0';g.stroke(P)});g.setLineDash([]);
+SH[lt].forEach((d,i)=>{const{p,L}=pp(d),a=p.getPointAtLength(L*.45),b=p.getPointAtLength(L*.45+6),s=p.getPointAtLength(0);g.save();g.translate(a.x,a.y);g.rotate(Math.atan2(b.y-a.y,b.x-a.x));g.fillStyle='#ff9f1c';g.beginPath();g.moveTo(16,0);g.lineTo(-10,-14);g.lineTo(-10,14);g.fill();g.restore();
+g.fillStyle='#2fbf71';g.beginPath();g.arc(s.x,s.y,17,0,7);g.fill();g.fillStyle='#fff';g.font='800 22px sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(i+1,s.x,s.y+1)})}
+const ink=pen($('#ic'),()=>lt=='H'?'#ff5c93':'#2f9bff',16,wend);
+function evalW(pts){if(pts.length<15)return{cov:0,pre:0};const S=[];SH[lt].forEach(d=>{const{p,L}=pp(d);for(let i=0;i<=40;i++){const q=p.getPointAtLength(L*i/40);S.push([q.x,q.y])}});
+const near=(a,B,r)=>B.some(b=>Math.hypot(a[0]-b[0],a[1]-b[1])<r),sub=pts.filter((_,i)=>i%4==0);return{cov:S.filter(s=>near(s,pts,34)).length/S.length,pre:sub.filter(p=>near(p,S,44)).length/sub.length}}
+function wend(o){if(mode=='demo')return;const r=evalW(o.pts),t=mode=='trace'?[.7,.6]:[.6,.5],k=lt+mode;
+if(r.cov>=t[0]&&r.pre>=t[1]){if(!okL[k]){okL[k]=1;star(1,$('#ic'));ok();updW()}talk('Hebat! Tulisan huruf '+lt+' bagus sekali! ⭐')}else if(r.pre<t[1]&&o.pts.length>30)talk('Ayo ikuti garis dan arah panahnya pelan-pelan, ya!');else talk('Bagus! Teruskan sampai semua garis tertutup.')}
+function updW(){const n=Object.keys(okL).length;$('#wc').textContent=n+'/4';if(n>=4)complete(2)}
+function setMode(m){dm++;mode=m;ink.clear();guide();$('#mT').classList.toggle('on',m=='trace');$('#mF').classList.toggle('on',m=='free')}
+function setL(l){lt=l;$('#tH').classList.toggle('on',l=='H');$('#th').classList.toggle('on',l=='h');$('#stp').textContent=ST[l];setMode('trace');talk('Menulis huruf '+(l=='H'?'kapital H':'kecil h')+'. Ikuti titik hijau nomor 1!')}
+function demo(){setMode('trace');const id=dm;mode='demo';const S=SH[lt].map(d=>new Path2D(d)),Ls=SH[lt].map(d=>pp(d).L);let i=0,len=0;talk(ST[lt].replace(/[0-9]️⃣ /g,''));
+(function f(){if(id!=dm)return;guide();g.lineCap='round';g.lineWidth=14;g.strokeStyle='#ff9f1c';const fin=i>=S.length;for(let k=0;k<S.length;k++){if(k>i&&!fin)break;g.setLineDash([k<i||fin?1e4:len,1e4]);g.stroke(S[k])}g.setLineDash([]);
+if(!fin){len+=7;if(len>Ls[i]){i++;len=0}requestAnimationFrame(f)}else setTimeout(()=>{if(id==dm){mode='trace';guide()}},900)})()}
+$('#tH').onclick=()=>setL('H');$('#th').onclick=()=>setL('h');$('#mT').onclick=()=>{setMode('trace');talk('Tebalkan garis putus-putus, ya!')};$('#mF').onclick=()=>{setMode('free');talk('Sekarang tulis sendiri tanpa garis bantuan!')};
+$('#mD').onclick=demo;$('#rp').onclick=demo;$('#cl').onclick=()=>{ink.clear();talk('Ayo coba lagi!')};
+/* Misi 4 */
+const SW=[['🌧️','hujan','___ – jan','hu'],['👃','hidung','___ – dung','hi'],['💗','hati','___ – ti','ha'],['🌳','hutan','___ – tan','hu']];let wi=0;
+const pad=pen($('#wic'),()=>'#a56bff',14),gp=$('#wgc').getContext('2d');
+function m4(){wi=0;w4()}
+function w4(){const w=SW[wi];$('#wd4').textContent='Kata '+(wi+1)+' dari 4';$('#wq').innerHTML=`<div class="emo" id="we">${w[0]}</div><div class="wd" id="wp">${w[2]}</div>`;$('#wpad').classList.add('hid');$('#wo').innerHTML='';
+sh(['hu','hi','ha']).forEach(s=>{const b=document.createElement('button');b.className='opt';b.textContent=s;b.onclick=()=>{if(s==w[3]){ok();star(1,b);$('#wp').textContent=w[1].toUpperCase();$('#we').classList.add('big2');$('#wo').innerHTML='';talk('Hebat! Kamu berhasil menemukan kata '+w[1].toUpperCase()+'!');say(w[1]);if(wi==0)rain();padOn(w[1])}else{no();b.classList.add('shake');toast('Ups, coba lagi, ya!')}};$('#wo').append(b)})}
+function padOn(t){$('#wpad').classList.remove('hid');pad.clear();gp.clearRect(0,0,600,180);gp.font='800 130px "Baloo 2",sans-serif';gp.textAlign='center';gp.textBaseline='alphabetic';gp.setLineDash([10,8]);gp.lineWidth=3;gp.strokeStyle='#8a7bd8';gp.strokeText(t,300,130);gp.setLineDash([])}
+$('#wclr').onclick=()=>pad.clear();
+$('#wfin').onclick=()=>{if(pad.pts.length<20){toast('Ayo tulis katanya dulu, ya!');return}ok();star(1,$('#wfin'));wi++;if(wi>=4){$('#wpad').classList.add('hid');$('#wq').innerHTML='<div class="emo">🎉</div><div class="wd">Semua kata selesai!</div><button class="btn b" id="ag4">🔄 Main Lagi</button>';$('#ag4').onclick=m4;talk('Hebat! Kamu bisa menulis hujan, hidung, hati, dan hutan!');complete(3)}else w4()};
+/* Misi 5 */
+const Q=[{q:'Manakah huruf kapital H?',o:['N','H','M'],a:'H'},{q:'Manakah huruf kecil h?',o:['b','n','h'],a:'h'},{q:'Huruf kapital H ditulis dengan memulai goresan berupa ...',o:['Garis tegak dari atas ke bawah','Garis miring ke kanan','Garis melingkar'],a:'Garis tegak dari atas ke bawah'},{e:'👃',q:'Perhatikan gambar hidung! Huruf yang tepat untuk melengkapi kata _idung adalah ...',o:['n','h','b'],a:'h'},{e:'🌧️',q:'Perhatikan gambar hujan! Suku kata yang tepat untuk melengkapi kata ___ – jan adalah ...',o:['ha','hi','hu'],a:'hu'}];
+let qi=0,qs=0,tr=0;
+function m5(){qi=0;qs=0;tr=0;q5()}
+function dots(){$('#qd').innerHTML=Q.map((_,i)=>`<span class="${i<qi?'d':i==qi?'c':''}"></span>`).join('')}
+function q5(){dots();if(qi>=Q.length){const m=qs>=4?'Luar biasa! Kamu pintar sekali!':qs>=2?'Bagus! Ayo berlatih sedikit lagi!':'Jangan menyerah! Ayo coba lagi bersama Hani!';$('#qb').innerHTML=`<div class="emo">${qs>=4?'🏆':'🌟'}</div><h2>Nilaimu: ${'⭐'.repeat(qs)||'—'}</h2><div class="wd">${qs} dari 5 benar</div><p>${m}</p><button class="btn b" id="ag5">🔄 Ulangi Kuis</button>`;$('#ag5').onclick=m5;talk(m);win();complete(4);return}
+const x=Q[qi];$('#qb').innerHTML=`<h3>Soal ${qi+1} dari 5</h3>${x.e?`<div class="emo">${x.e}</div>`:''}<p class="wd" style="font-size:clamp(22px,4vw,34px)">${x.q}</p><div class="opts" id="qo"></div>`;tr=0;
+sh(x.o).forEach(o=>{const b=document.createElement('button');b.className='opt'+(o.length>3?' long':'');b.textContent=o;b.onclick=()=>{if(o==x.a){ok();star(1,b);if(!tr)qs++;talk('Benar! Hebat! ⭐');qi++;setTimeout(q5,1000)}else{no();tr=1;b.classList.add('shake');b.disabled=true;talk('Ups, coba lagi, ya!');toast('Ups, coba lagi, ya!')}};$('#qo').append(b)})}
+/* Penghargaan */
+function final(){const all=done.every(x=>x);$('#med').style.display=all?'block':'none';$('#fin').textContent=all?'Kamu mengumpulkan '+stars+' bintang! ⭐':'Masih ada misi yang belum selesai. Ayo selesaikan semua misi untuk mendapatkan medali!';if(all){win();say('Selamat! Kamu hebat! Sekarang kamu sudah mengenal dan belajar menulis huruf H dan h!');const C=['#ff5c93','#ffd54a','#5bb8ff','#5fd08a','#a98bff'];for(let i=0;i<60;i++){const s=document.createElement('span');s.className='cf';s.style.left=Math.random()*100+'vw';s.style.background=C[i%5];s.style.animationDelay=Math.random()*1.5+'s';document.body.append(s);setTimeout(()=>s.remove(),5200)}}}
+const RF=['Hore! Hani bangga padamu!','Tidak apa-apa, ayo latihan lagi!','Ayo kita belajar lagi bersama Hani!'];
+$$('.ref .btn').forEach((b,i)=>b.onclick=()=>{$$('.ref .btn').forEach(x=>x.classList.remove('on'));b.classList.add('on');ok();talk(RF[i]);say(RF[i])});
+function init(){m1();m2();setL('H');m4();m5()}
+$('#rs').onclick=()=>{done=[0,0,0,0,0];stars=0;okL={};$('#sc').textContent=0;$('#wc').textContent='0/4';$$('.ref .btn').forEach(x=>x.classList.remove('on'));prog();init();go(1)};
+init();guide();
+</script></body></html>
